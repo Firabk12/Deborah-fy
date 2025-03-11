@@ -1,0 +1,435 @@
+:root {
+    --primary-color: #1DB954;
+    --primary-color-rgb: 29, 185, 84;
+    --surface-color: #121212;
+    --dark-color: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --genre-gradient: linear-gradient(135deg, rgba(29, 185, 84, 0.2), rgba(29, 185, 84, 0.1));
+}
+
+body {
+    background: var(--surface-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preferences-container {
+    max-width: 800px;
+    width: 100%;
+    padding: 48px 24px;
+    margin: 0 auto;
+}
+
+/* Progress Bar Styling */
+.setup-progress {
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    background: var(--primary-color);
+    width: 66%;
+    transition: width 0.5s ease;
+    animation: progressFill 1s ease;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.step {
+    position: relative;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.step.active {
+    color: var(--primary-color);
+}
+
+.step.completed {
+    color: var(--primary-color);
+}
+
+.step.completed .material-symbols-rounded {
+    font-size: 16px;
+    animation: checkmark 0.5s ease;
+}
+
+/* Section Styling */
+.section {
+    margin-bottom: 48px;
+    animation: slideUp 0.5s ease both;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, var(--primary-color), #1ed760);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* Genres Grid */
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.genre-card {
+    background: var(--genre-gradient);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.genre-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.genre-card:hover {
+    transform: translateY(-4px);
+}
+
+.genre-card.selected::before {
+    opacity: 0.2;
+}
+
+.genre-card .material-symbols-rounded {
+    font-size: 32px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.genre-name {
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mood Sliders */
+.moods-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.mood-slider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mood-slider span {
+    min-width: 80px;
+    color: var(--text-secondary);
+}
+
+.mood-slider input[type="range"] {
+    flex: 1;
+    height: 4px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+}
+
+.mood-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mood-slider input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Artist Search */
+.artist-search {
+    margin-top: 24px;
+}
+
+.search-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    transition: background 0.3s ease;
+}
+
+.search-box:focus-within {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-box input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-box .material-symbols-rounded {
+    color: var(--text-secondary);
+}
+
+.selected-artists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.artist-chip {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: scaleIn 0.3s ease;
+}
+
+.artist-chip img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.artist-chip .remove-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Action Buttons */
+.form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.back-btn,
+.finish-btn {
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+}
+
+.back-btn:hover {
+    color: var(--text-primary);
+    transform: translateX(-4px);
+}
+
+.finish-btn {
+    flex: 1;
+    background: var(--primary-color);
+    border: none;
+    color: var(--dark-color);
+    justify-content: center;
+}
+
+.finish-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(29, 185, 84, 0.3);
+}
+
+/* Love Note */
+.love-note {
+    text-align: center;
+    margin-top: 48px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: fadeIn 0.5s ease 1s both;
+}
+
+.love-note span {
+    color: #ff4b4b;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Animations */
+@keyframes progressFill {
+    from { width: 33%; }
+    to { width: 66%; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes checkmark {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .preferences-container {
+        padding: 32px 16px;
+    }
+
+    .section h2 {
+        font-size: 1.75rem;
+    }
+
+    .genres-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .mood-slider span {
+        min-width: 60px;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .back-btn {
+        order: 2;
+    }
+
+    .finish-btn {
+        order: 1;
+    }
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+}
+
+.loading::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary-color);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    z-index: 1;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

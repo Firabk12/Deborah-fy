@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Music Taste - Deborah-fy</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/music-preferences.css">
+    <link rel="icon" type="image/svg" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="preferences-container">
+        <!-- Progress Bar -->
+        <div class="setup-progress">
+            <div class="progress-bar" data-progress="66"></div>
+            <div class="progress-steps">
+                <span class="step completed">
+                    <span class="material-symbols-rounded">check_circle</span>
+                    Profile
+                </span>
+                <span class="step active">Preferences</span>
+                <span class="step">Complete</span>
+            </div>
+        </div>
+
+        <!-- Preferences Form -->
+        <form class="preferences-form" id="preferencesForm">
+            <!-- Genres Section -->
+            <div class="section genres-section">
+                <h2>What music moves you? 🎵</h2>
+                <p class="section-desc">Pick at least 3 genres you love</p>
+                
+                <div class="genres-grid">
+                    <div class="genre-card" data-genre="pop">
+                        <span class="material-symbols-rounded">music_note</span>
+                        <span class="genre-name">Pop</span>
+                    </div>
+                    <div class="genre-card" data-genre="rock">
+                        <span class="material-symbols-rounded">electric_guitar</span>
+                        <span class="genre-name">Rock</span>
+                    </div>
+                    <div class="genre-card" data-genre="hiphop">
+                        <span class="material-symbols-rounded">mic</span>
+                        <span class="genre-name">Hip Hop</span>
+                    </div>
+                    <div class="genre-card" data-genre="jazz">
+                        <span class="material-symbols-rounded">piano</span>
+                        <span class="genre-name">Jazz</span>
+                    </div>
+                    <div class="genre-card" data-genre="electronic">
+                        <span class="material-symbols-rounded">graphic_eq</span>
+                        <span class="genre-name">Electronic</span>
+                    </div>
+                    <div class="genre-card" data-genre="classical">
+                        <span class="material-symbols-rounded">orchestra</span>
+                        <span class="genre-name">Classical</span>
+                    </div>
+                    <!-- Add more genres as needed -->
+                </div>
+            </div>
+
+            <!-- Mood Section -->
+            <div class="section mood-section">
+                <h2>What's your vibe? 🎧</h2>
+                <p class="section-desc">Choose your favorite moods</p>
+                
+                <div class="moods-container">
+                    <div class="mood-slider">
+                        <span>Energetic</span>
+                        <input type="range" min="0" max="100" value="50">
+                        <span>Chill</span>
+                    </div>
+                    <div class="mood-slider">
+                        <span>Happy</span>
+                        <input type="range" min="0" max="100" value="50">
+                        <span>Melancholic</span>
+                    </div>
+                    <div class="mood-slider">
+                        <span>Party</span>
+                        <input type="range" min="0" max="100" value="50">
+                        <span>Focus</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Search -->
+            <div class="section artists-section">
+                <h2>Who inspires you? 🎤</h2>
+                <p class="section-desc">Add your favorite artists</p>
+                
+                <div class="artist-search">
+                    <div class="search-box">
+                        <span class="material-symbols-rounded">search</span>
+                        <input type="text" placeholder="Search artists...">
+                    </div>
+                    
+                    <div class="selected-artists">
+                        <!-- Selected artists will be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+                <button type="button" class="back-btn">
+                    <span class="material-symbols-rounded">arrow_back</span>
+                    Back
+                </button>
+                <button type="submit" class="finish-btn">
+                    <span>Finish</span>
+                    <span class="material-symbols-rounded">celebration</span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Love Note -->
+        <div class="love-note">
+            <span class="material-symbols-rounded">favorite</span>
+            <p>Music speaks what love feels</p>
+        </div>
+    </div>
+
+    <script>
+        const currentTime = new Date('2025-03-09 18:04:01');
+        const currentUser = 'Firabk12';
+    </script>
+    <script src="../assets/js/music-preferences.js"></script>
+</body>
+</html>

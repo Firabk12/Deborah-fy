@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Deborah-fy</title>
+    <link rel="stylesheet" href="../assets/css/onboarding.css">
+    <link rel="stylesheet" href="../assets/css/features.css">
+    <link rel="icon" type="image/svg" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="swipe-container">
+        <div class="onboarding-page active">
+            <!-- Center Container -->
+            <div class="features-container">
+                <div class="features-slider">
+                    <!-- Feature Slide 1 -->
+                    <div class="feature-slide active">
+                        <div class="feature-illustration pulse">
+                            <span class="material-symbols-rounded">playlist_add</span>
+                        </div>
+                        <h2 class="feature-title">Your Music, Your Way</h2>
+                        <p class="feature-desc">Create unlimited playlists and organize your favorite tracks</p>
+                    </div>
+
+                    <!-- Feature Slide 2 -->
+                    <div class="feature-slide">
+                        <div class="feature-illustration pulse">
+                            <span class="material-symbols-rounded">headphones</span>
+                        </div>
+                        <h2 class="feature-title">Listen Anywhere</h2>
+                        <p class="feature-desc">Enjoy your music offline, anytime, anywhere</p>
+                    </div>
+
+                    <!-- Feature Slide 3 -->
+                    <div class="feature-slide">
+                        <div class="feature-illustration pulse">
+                            <span class="material-symbols-rounded">explore</span>
+                        </div>
+                        <h2 class="feature-title">Discover New Beats</h2>
+                        <p class="feature-desc">Find new artists and tracks tailored to your taste</p>
+                    </div>
+
+                    <!-- Feature Slide 4 (Dedication Slide) ❤️ -->
+                    <div class="feature-slide dedication-slide">
+                        <div class="heart-container">
+                            <span class="material-symbols-rounded pulse">favorite</span>
+                        </div>
+                        <h2 class="feature-title">Coded in your name</h2>
+                        <div style="height: 100%; width: 100%; justify-content: center; align-items: center;">                        
+<p class="feature-desc dedication-text" style=" font-size: 18px; color: #fff; line-height: 1.6; margin: 0 auto;">
+    To Deborah, the girl who unknowingly lit up our world of IT and changed everything, from figma to atom, you was a top tier, tho we couldn't help. <br>
+    This app isn’t just music—it’s our heart, pouring itself out for you in every single algorithms, every flows, and every line of code. <br>
+    With every melody, we remember you; with every rhythm, we think of you. It’s like we're writing a love letter you’ll never read, but still, we can’t stop. <br>
+    The silence, the distance—it doesn’t matter. Even if we never speak again, or never meet in person, our heart will always belong to you. <br>
+    You’ll always be our favorite song, the one we'll keep playing over and over, no matter what.
+</p>
+
+<p class="signature" style="text-align: center; font-weight: bold; font-size: 16px; color: #fff;">- Firafis Bekele</p>
+
+                     
+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation Bar -->
+            <div class="bottom-bar">
+                <button class="nav-btn back-btn" onclick="onboardingFlow.navigateTo('welcome.html')">
+                    <span class="material-symbols-rounded">arrow_back</span>
+                </button>
+                
+                <div class="progress-dots"></div>
+                
+                <button class="nav-btn next-btn" onclick="onboardingFlow.goToNextSlide()">
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                </button>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script>
+        // Current time and user setup
+        const currentTime = new Date('2025-03-09 11:56:30');
+        const currentUser = 'Firabk12';
+    </script>
+    <script src="../assets/js/onboarding.js"></script>
+    <script src="../assets/js/utils/SessionManager.js"></script>
+</body>
+</html>

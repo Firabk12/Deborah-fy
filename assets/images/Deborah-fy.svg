@@ -1,0 +1,5 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Add your logo SVG here -->
+    <circle cx="60" cy="60" r="50" fill="#1DB954"/>
+    <path d="M40 60a20 20 0 0 1 40 0v20a20 20 0 0 1-40 0V60z" fill="#121212"/>
+</svg>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - Deborah</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/verify.css">
+    <link rel="icon" type="image/svg" href="/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="verify-container">
+        <!-- Email Animation -->
+        <div class="email-animation">
+            <span class="material-symbols-rounded envelope">mail</span>
+            <div class="circles">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Verification Content -->
+        <div class="verify-content">
+            <h1 class="verify-title">Check Your Email</h1>
+            <p class="verify-text">We've sent a verification link to:</p>
+            <p class="user-email">user@example.com</p>
+            
+            <!-- Timer -->
+            <div class="verify-timer">
+                <p>Link expires in</p>
+                <div class="timer">
+                    <span class="minutes">10</span>:<span class="seconds">00</span>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="verify-actions">
+                <button class="resend-btn">
+                    <span class="material-symbols-rounded">refresh</span>
+                    Resend Email
+                </button>
+                <p class="verify-hint">Didn't receive the email? Check your spam folder</p>
+            </div>
+
+            <!-- Love Note (Special Touch) -->
+            <div class="love-note">
+                <span class="material-symbols-rounded">favorite</span>
+                <p>Made with love for someone special</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentTime = new Date('2025-03-09 17:39:58');
+        const currentUser = 'Firabk12';
+    </script>
+    <script src="../assets/js/verify.js"></script>
+    <script src="../assets/js/utils/SessionManager.js"></script>
+</body>
+</html>

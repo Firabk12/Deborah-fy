@@ -1,0 +1,295 @@
+/* Root Variables */
+:root {
+    --primary-color: #1DB954;  /* Spotify Green */
+    --primary-color-rgb: 29, 185, 84;
+    --surface-color: #121212;  /* Spotify Dark */
+    --dark-color: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Base Page Style */
+.onboarding-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--surface-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.onboarding-page.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Features Container */
+.features-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    padding: 0 24px;
+}
+
+/* Slider */
+.features-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+.feature-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+}
+
+.feature-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Feature Content */
+.feature-illustration {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(29, 185, 84, 0.2), rgba(29, 185, 84, 0.1));
+    border-radius: 50%;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.feature-illustration span {
+    font-size: 48px;
+    color: var(--primary-color);
+}
+
+.feature-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 24px 0 16px;
+    background: linear-gradient(to right, var(--primary-color), #1ed760);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideUp 0.5s ease;
+}
+
+.feature-desc {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease 0.2s both;
+}
+
+/* Dedication Slide */
+.dedication-slide {
+    background: linear-gradient(135deg, rgba(29, 185, 84, 0.1), rgba(29, 185, 84, 0.05));
+    border-radius: 24px;
+    padding: 48px 24px;
+    animation: glow 3s infinite alternate;
+}
+
+.heart-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-container span {
+    font-size: 64px;
+    color: #ff4b4b;
+    animation: heartbeat 1.5s infinite;
+}
+
+.dedication-text {
+    font-size: 1.5rem;
+    line-height: 2;
+    margin: 24px 0;
+    color: var(--text-primary);
+}
+
+.signature {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-style: italic;
+    animation: writeSignature 1s ease;
+}
+
+/* Bottom Navigation */
+.bottom-bar {
+    position: fixed;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    z-index: 100;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+}
+
+/* Progress Dots */
+.progress-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    opacity: 1;
+    background: var(--primary-color);
+    width: 24px;
+    border-radius: 12px;
+}
+
+/* Brand Developer Credit */
+.brand-dev {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(29, 185, 84, 0.2); }
+    100% { box-shadow: 0 0 20px rgba(29, 185, 84, 0.4); }
+}
+
+@keyframes writeSignature {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feature-title {
+        font-size: 2rem;
+    }
+
+    .feature-desc {
+        font-size: 1rem;
+    }
+
+    .dedication-text {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-illustration {
+        width: 90px;
+        height: 90px;
+    }
+
+    .feature-illustration span {
+        font-size: 36px;
+    }
+
+    .nav-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .brand-dev {
+        font-size: 0.75rem;
+        bottom: 24px;
+    }
+
+    .bottom-bar {
+        padding: 0 16px;
+        bottom: 24px;
+    }
+}
