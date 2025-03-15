@@ -8,11 +8,11 @@ class MusicPreferences {
         
         // Sample artist data (In real app, this would come from an API)
         this.artistDatabase = [
-            { id: 1, name: 'Taylor Swift', image: '../assets/images/artists/taylor.jpg' },
-            { id: 2, name: 'The Weeknd', image: '../assets/images/artists/weeknd.jpg' },
+            { id: 1, name: 'Mia Khalifa', image: '../assets/images/artists/mia.jpg' },
+            { id: 2, name: 'The Weeknd', image: '../assets/images/artists/abel.jpg' },
             { id: 3, name: 'Drake', image: '../assets/images/artists/drake.jpg' },
             { id: 4, name: 'Dua Lipa', image: '../assets/images/artists/dua.jpg' },
-            { id: 5, name: 'Ed Sheeran', image: '../assets/images/artists/ed.jpg' },
+            { id: 5, name: 'Travis Scott', image: '../assets/images/artists/travis.jpg' },
             { id: 6, name: 'Billie Eilish', image: '../assets/images/artists/billie.jpg' },
             // Add more artists as needed
         ];

@@ -19,6 +19,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/account.css">
     
     <!-- Add this in your <head> section -->
 <script src="https://cdn.jsdelivr.net/npm/music-metadata-browser@2.5.0/dist/browser.js"></script>
@@ -300,12 +301,141 @@
 </section>
 
             <!-- Account Page -->
-            <section class="page" id="accountPage">
-                <div class="page-header">
-                    <h1>Account</h1>
+<section class="page" id="accountPage">
+    <div class="header-top">
+        <h1>Account</h1>
+    </div>
+
+    <!-- Profile Overview Card -->
+    <div class="profile-overview">
+        <div class="profile-header">
+            <div class="profile-image-container">
+                <img src="./assets/images/default-avatar.jpg" alt="Profile Picture" id="profileImage">
+                <button class="edit-profile-image">
+                    <span class="material-symbols-rounded">edit</span>
+                </button>
+            </div>
+            <div class="profile-info">
+                <h2 id="displayName">Deborah Smith</h2>
+                <p class="username">@Firabk12</p>
+                <p class="bio">Music enthusiast | Creating vibes through code 🎵✨</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">247</span>
+                        <span class="stat-label">Playlists</span>
+                    </div>
                 </div>
-                
-            </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <button class="action-btn primary">
+            <span class="material-symbols-rounded">edit</span>
+            Edit Profile
+        </button>
+        <button class="action-btn">
+            <span class="material-symbols-rounded">settings</span>
+            Settings
+        </button>
+        <button class="action-btn">
+            <span class="material-symbols-rounded">help</span>
+            Help Center
+        </button>
+    </div>
+
+    <!-- Account Sections Grid -->
+    <div class="account-sections-grid">
+        <!-- Listening History -->
+        <div class="account-section-card">
+            <div class="section-header">
+                <span class="material-symbols-rounded">history</span>
+                <h3>Listening History</h3>
+            </div>
+            <div class="section-content">
+                <div class="mini-stats">
+                    <div class="stat">
+                        <span class="value">47</span>
+                        <span class="label">Hours this week</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">Rock</span>
+                        <span class="label">Top Genre</span>
+                    </div>
+                </div>
+                <button class="btn-text">View Full History</button>
+            </div>
+        </div>
+
+        <!-- Privacy & Security -->
+        <div class="account-section-card">
+            <div class="section-header">
+                <span class="material-symbols-rounded">security</span>
+                <h3>Privacy & Security</h3>
+            </div>
+            <div class="section-content">
+                <div class="security-status">
+                    <span class="status-indicator secure">
+                        <span class="material-symbols-rounded">verified</span>
+                        Account Protected
+                    </span>
+                </div>
+                <div class="security-options">
+                    <button class="security-option">
+                        <span class="material-symbols-rounded">password</span>
+                        Change Password
+                    </button>
+                    <button class="security-option">
+                        <span class="material-symbols-rounded"></span>
+                        2-Factor Auth
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent-activity">
+        <div class="section-header">
+            <h3>Recent Activity</h3>
+            <button class="btn-text">View All</button>
+        </div>
+        <div class="activity-list">
+            <div class="activity-item">
+                <span class="material-symbols-rounded">playlist_add_check</span>
+                <div class="activity-info">
+                    <p>Created new playlist "Summer Vibes 2025"</p>
+                    <span class="activity-time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <span class="material-symbols-rounded">headphones</span>
+                <div class="activity-info">
+                    <p>Listened to "Chill Mix" playlist</p>
+                    <span class="activity-time">Yesterday</span>
+                </div>
+            </div>
+            <div class="activity-item">
+                <span class="material-symbols-rounded">edit</span>
+                <div class="activity-info">
+                    <p>Updated profile information</p>
+                    <span class="activity-time">2 days ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Actions -->
+    <div class="account-actions">
+        <button class="btn-danger">
+            <span class="material-symbols-rounded">logout</span>
+            Sign Out
+        </button>
+        <button class="btn-text-danger">Delete Account</button>
+    </div>
+</section>
+            
         </main>
         
         
@@ -488,17 +618,354 @@
             </button>
         </nav>
     </div>
+    
+    <!-- Edit Profile Modal -->
+<div id="editProfileModal" class="modal hidden">
+    <div class="modal-content profile-edit-modal">
+        <div class="modal-header">
+            <h3>Edit Profile</h3>
+            <button class="btn-icon close-modal">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="profile-edit-form">
+                <div class="profile-image-edit">
+                    <div class="profile-image-preview">
+                        <img id="profileImagePreview" src="./assets/images/default-avatar.jpg" alt="Profile Preview">
+                        <div class="image-upload-overlay">
+                            <span class="material-symbols-rounded">add_a_photo</span>
+                            <span class="upload-text">Change Photo</span>
+                        </div>
+                    </div>
+                    <input type="file" id="profileImageInput" accept="image/*" hidden>
+                </div>
+                
+                <div class="form-group">
+                    <label for="displayNameInput">Display Name</label>
+                    <input type="text" id="displayNameInput" class="form-input" placeholder="Enter your display name">
+                </div>
+
+                <div class="form-group">
+                    <label for="usernameInput">Username</label>
+                    <div class="username-input-wrapper">
+                        <span class="username-prefix">@</span>
+                        <input type="text" id="usernameInput" class="form-input" placeholder="Enter username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bioInput">Bio</label>
+                    <textarea id="bioInput" class="form-input" placeholder="Tell us about yourself" maxlength="160"></textarea>
+                    <span class="bio-character-count">0/160</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" id="cancelEditProfile">Cancel</button>
+            <button class="btn-primary" id="saveProfileChanges">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notifications Container -->
+<div id="toastContainer" class="toast-container"></div>
 
     <!-- Loading Spinner -->
     <div id="loadingSpinner" class="loading-spinner hidden">
         <span class="material-symbols-rounded"></span>
     </div>
+    
+    <!-- Settings Modal -->
+<div id="settingsModal" class="modal hidden">
+    <div class="modal-content settings-modal">
+        <div class="modal-header">
+            <h3>Settings</h3>
+            <button class="btn-icon close-modal">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+        </div>
+        <div class="modal-body settings-body">
+            <!-- Settings Navigation -->
+            <div class="settings-nav">
+                <button class="settings-nav-item active" data-section="appearance">
+                    <span class="material-symbols-rounded">palette</span>
+                    Appearance
+                </button>
+                <button class="settings-nav-item" data-section="playback">
+                    <span class="material-symbols-rounded">tune</span>
+                    Playback
+                </button>
+                <button class="settings-nav-item" data-section="notifications">
+                    <span class="material-symbols-rounded">notifications</span>
+                    Notifications
+                </button>
+                <button class="settings-nav-item" data-section="privacy">
+                    <span class="material-symbols-rounded">security</span>
+                    Privacy
+                </button>
+                <button class="settings-nav-item" data-section="language">
+                    <span class="material-symbols-rounded">language</span>
+                    Language
+                </button>
+                <button class="settings-nav-item" data-section="storage">
+                    <span class="material-symbols-rounded">storage</span>
+                    Storage
+                </button>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Appearance Section -->
+                <div class="settings-section active" data-section="appearance">
+                    <h4>Theme</h4>
+                    <div class="theme-selector">
+                        <div class="theme-option">
+                            <input type="radio" name="theme" id="themeDark" value="dark" checked>
+                            <label for="themeDark">
+                                <div class="theme-preview dark"></div>
+                                Dark
+                            </label>
+                        </div>
+                        <div class="theme-option">
+                            <input type="radio" name="theme" id="themeLight" value="light">
+                            <label for="themeLight">
+                                <div class="theme-preview light"></div>
+                                Light
+                            </label>
+                        </div>
+                        <div class="theme-option">
+                            <input type="radio" name="theme" id="themeSystem" value="system">
+                            <label for="themeSystem">
+                                <div class="theme-preview system"></div>
+                                System
+                            </label>
+                        </div>
+                    </div>
+
+                    <h4>Accent Color</h4>
+                    <div class="color-picker">
+                        <button class="color-option active" data-color="#1DB954" style="--color: #1DB954"></button>
+                        <button class="color-option" data-color="#E91429" style="--color: #E91429"></button>
+                        <button class="color-option" data-color="#2E77D0" style="--color: #2E77D0"></button>
+                        <button class="color-option" data-color="#FF6B00" style="--color: #FF6B00"></button>
+                        <button class="color-option" data-color="#9B4BFF" style="--color: #9B4BFF"></button>
+                    </div>
+                </div>
+
+                <!-- Playback Section -->
+                <div class="settings-section" data-section="playback">
+                    <h4>Audio Quality</h4>
+                    <div class="quality-selector">
+                        <select class="form-input">
+                            <option value="auto">Automatic</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+
+                    <h4>Crossfade</h4>
+                    <div class="crossfade-control">
+                        <input type="range" min="0" max="12" value="0" class="slider" id="crossfadeSlider">
+                        <div class="slider-labels">
+                            <span>Off</span>
+                            <span class="current-value">0s</span>
+                            <span>12s</span>
+                        </div>
+                    </div>
+
+                    <h4>Equalizer</h4>
+                    <button class="btn-secondary full-width">
+                        <span class="material-symbols-rounded">equalizer</span>
+                        Open Equalizer
+                    </button>
+                </div>
+
+                <!-- Notifications Section -->
+                <div class="settings-section" data-section="notifications">
+                    <div class="notification-options">
+                        <div class="toggle-option">
+                            <div class="toggle-info">
+                                <h4>New Music</h4>
+                                <p>Get notified about new releases</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <div class="toggle-info">
+                                <h4>Playlist Updates</h4>
+                                <p>When your followed playlists update</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <div class="toggle-info">
+                                <h4>Artist Updates</h4>
+                                <p>News from artists you follow</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Privacy Section -->
+                <div class="settings-section" data-section="privacy">
+                    <div class="privacy-options">
+                        <div class="toggle-option">
+                            <div class="toggle-info">
+                                <h4>Private Session</h4>
+                                <p>Your listening activity won't be shared</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-option">
+                            <div class="toggle-info">
+                                <h4>Listening History</h4>
+                                <p>Save songs you've listened to</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn-secondary full-width margin-top">
+                        <span class="material-symbols-rounded">delete</span>
+                        Clear Listening History
+                    </button>
+                </div>
+
+                <!-- Language Section -->
+                <div class="settings-section" data-section="language">
+                    <h4>Display Language</h4>
+                    <select class="form-input">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="it">Italiano</option>
+                        <option value="pt">Português</option>
+                    </select>
+                </div>
+
+                <!-- Storage Section -->
+                <div class="settings-section" data-section="storage">
+                    <div class="storage-info">
+                        <div class="storage-graph">
+                            <div class="storage-bar">
+                                <div class="used" style="width: 65%"></div>
+                            </div>
+                            <div class="storage-labels">
+                                <span>6.5 GB used</span>
+                                <span>10 GB total</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-secondary full-width margin-top">
+                        <span class="material-symbols-rounded">cleaning_services</span>
+                        Clear Cache
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Help Center Modal -->
+<div id="helpCenterModal" class="modal hidden">
+    <div class="modal-content help-center-modal">
+        <div class="modal-header">
+            <h3>Help Center</h3>
+            <button class="btn-icon close-modal">
+                <span class="material-symbols-rounded">close</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="help-search">
+                <span class="material-symbols-rounded">search</span>
+                <input type="text" placeholder="Search for help" class="form-input">
+            </div>
+            
+            <div class="quick-help">
+                <h4>Popular Topics</h4>
+                <div class="help-grid">
+                    <button class="help-card">
+                        <span class="material-symbols-rounded">account_circle</span>
+                        <h5>Account Help</h5>
+                        <p>Manage your account settings</p>
+                    </button>
+                    <button class="help-card">
+                        <span class="material-symbols-rounded">payments</span>
+                        <h5>Payment</h5>
+                        <p>Billing and subscription</p>
+                    </button>
+                    <button class="help-card">
+                        <span class="material-symbols-rounded">headphones</span>
+                        <h5>App Features</h5>
+                        <p>Learn about features</p>
+                    </button>
+                    <button class="help-card">
+                        <span class="material-symbols-rounded">security</span>
+                        <h5>Privacy & Security</h5>
+                        <p>Keep your account safe</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="help-section">
+                <h4>FAQ</h4>
+                <div class="faq-list">
+                    <button class="faq-item">
+                        <div class="faq-header">
+                            <span>How do I create a playlist?</span>
+                            <span class="material-symbols-rounded">expand_more</span>
+                        </div>
+                    </button>
+                    <button class="faq-item">
+                        <div class="faq-header">
+                            <span>How to download music for offline listening?</span>
+                            <span class="material-symbols-rounded">expand_more</span>
+                        </div>
+                    </button>
+                    <button class="faq-item">
+                        <div class="faq-header">
+                            <span>How to change my password?</span>
+                            <span class="material-symbols-rounded">expand_more</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="contact-support">
+                <h4>Need more help?</h4>
+                <button class="btn-primary full-width">
+                    <span class="material-symbols-rounded">support_agent</span>
+                    Contact Support
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Scripts -->
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/api.js"></script>
-    
     <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/account.js"></script>
+    <script src="./assets/js/settings.js"></script>
     <script>
     const currentTime = new Date('2025-03-08 20:49:19');
     const currentUser = 'Firabk12';

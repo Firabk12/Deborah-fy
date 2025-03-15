@@ -60,7 +60,7 @@ class EmailVerification {
     showUserEmail() {
         const emailElement = document.querySelector('.user-email');
         // In real app, get this from signup data
-        emailElement.textContent = 'user@example.com';
+        emailElement.textContent = 'deborah@gmail.com';
     }
 
     checkVerificationStatus() {
